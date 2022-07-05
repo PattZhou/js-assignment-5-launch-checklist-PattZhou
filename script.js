@@ -64,6 +64,8 @@ window.addEventListener("load", function () {
             faultyItems.style.visibility = 'visible';
             launchStatus.innerHTML = "Shuttle ready for launch!";
             launchStatus.style.color = 'green';
+            fuelStatus.innerHTML = "Enough fuel for launch!";
+            cargoStatus.innerHTML = "Mass low enough for launch!";
             event.preventDefault();
         }
     });
@@ -72,7 +74,7 @@ window.addEventListener("load", function () {
     fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
         // Access the JSON in the response
         response.json().then(function (json) {
-            let index = Math.floor(Math.random() * json.length - 1);
+            let index = Math.floor(Math.random() * json.length);
             let missionDiv = document.getElementById("missionTarget");
             missionDiv.innerHTML = `
             <h2>Mission Destination</h2>
